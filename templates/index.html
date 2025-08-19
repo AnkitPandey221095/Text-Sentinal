@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ML Prediction</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('https://media3.giphy.com/media/26BRGoqbUQvk8nwTC/giphy.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+
+
+    .container {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .container> form{
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content: center;
+    }
+
+    textarea {
+      width: 700px;
+      height: 250px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: none;
+      font-size: 16px;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .result {
+      width: 700px;
+      text-align: center;
+      border: 1px solid white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 20px;
+      color: #333;
+      backdrop-filter: blur(10px);
+      background-color: rgba(5, 209, 5, 0.527);
+      font-weight: bold;
+    }
+
+
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form method="POST" action="/predict">
+      <textarea name="userInput" placeholder="Type your message here..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    {% if result %}
+    <div class="result">{{ result }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
